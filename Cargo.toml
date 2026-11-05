@@ -1,0 +1,17 @@
+[package]
+name = "gamma-scout-gui"
+version = "0.6.0"
+edition = "2021"
+description = "Read a Gamma-Scout over its (virtual) COM port and show the log in a zoomable graph (egui)"
+readme = "README.md"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+chrono = { version = "0.4", default-features = false, features = ["std", "clock"] }
+eframe = "0.29"
+egui_plot = "0.29"
+rfd = "0.15"
+# default-features = false: no libudev needed on Linux. The port list is additionally
+# built from /dev/ttyUSB*, /dev/ttyACM* etc. on Linux/macOS (see gamma::list_ports).
+serialport = { version = "4", default-features = false }
